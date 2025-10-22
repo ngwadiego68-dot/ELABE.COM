@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404 - Page Not Found | ELABE Portal</title>
+    <style>
+        /* --- Page Style Variables (Consistent with ELABE Portal) --- */
+        :root {
+            --primary-color: #5b5ff7;
+            --secondary-color: #27ae60;
+            --background-color: #f4f7f6;
+            --text-color: #34495e;
+            --card-color: #ffffff;
+            --error-color: #e74c3c; /* Red for errors */
+            --font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            font-family: var(--font-family);
+            margin: 0;
+            padding: 0;
+            background-color: var(--background-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .error-container {
+            max-width: 600px;
+            padding: 40px;
+            background-color: var(--card-color);
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .error-code {
+            font-size: 8em;
+            font-weight: 700;
+            color: var(--error-color);
+            margin-bottom: 0;
+            line-height: 1;
+        }
+
+        .error-message {
+            font-size: 1.5em;
+            color: var(--text-color);
+            margin-top: 10px;
+            margin-bottom: 30px;
+        }
+
+        .error-guidance {
+            font-size: 1.1em;
+            color: #7f8c8d;
+        }
+
+        .home-link {
+            display: inline-block;
+            background-color: var(--primary-color);
+            color: white;
+            padding: 12px 25px;
+            margin-top: 20px;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+
+        .home-link:hover {
+            background-color: #4848d4; /* Darker primary color */
+        }
+    </style>
+</head>
+<body>
+
+<div class="error-container">
+    <div class="error-code">404 🛑</div>
+    <div class="error-message">
+        Désolé, Page Introuvable.
+    </div>
+
+    <p class="error-guidance">
+        The resource you requested could not be found on the ELABE Academic Portal.
+        <br>
+        It might have been moved, deleted, or you may have mistyped the address.
+    </p>
+   
+    <a href="index.html" class="home-link">
+        Go to the Home Page
+    </a>
+</div>
+
+</body>
+</html>

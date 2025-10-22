@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<subjects>
+    <note id="1">
+        <title>GCE O-Level Chemistry: Organic Chemistry</title>
+        <url>chem-2.html</url>
+        <keywords>Organic Chemistry, Alkanes, Alkenes</keywords>
+        <snippet>Covers the fundamental concepts of organic chemistry...</snippet>
+    </note>
+    <note id="2">
+        <title>GCE O-Level Physics: Radioactivity</title>
+        <url>physics-3.html</url>
+        <keywords>Radioactivity, Alpha, Beta, Half-Life</keywords>
+        <snippet>The structure of the atom and properties of emissions...</snippet>
+    </note>
+</subjects>

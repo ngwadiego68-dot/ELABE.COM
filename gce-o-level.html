@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+     <meta name="keywords" content="HTML,CSS,JAVASCRIPT,JSON,xml">
+        <meta name="description" content="Best search engine website">
+        <meta name="keywords" content="search, engine">
+        <meta name="author" content="EPOTO ELABE">
+        <meta charset="UFT-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1.0">
+        <meta http-equiv="X-UA-COMPATIBLE" content="ie-edge">
+        <script src="script.js" defer></script>
+
+     <link rel="stylesheet" href="style.css">
+     <link rel="apple-touch-icon" sizes="57*57" href="apple-icon-57*57.png">
+     <link rel="apple-touch-icon" sizes="60*60" href="apple-icon-60*60.png">
+     <link rel="apple-touch-icon" sizes="72*72" href="apple-icon-72*72.png">
+     <link rel="apple-touch-icon" sizes="114*114" href="apple-icon-114*114.png">
+     <link rel="apple-touch-icon" sizes="120*120" href="apple-icon-120*120.png">
+     <link rel="apple-touch-icon" sizes="144*144" href="apple-icon-144*144.png">
+     <link rel="apple-touch-icon" sizes="152*152" href="apple-icon-152*152.png">
+     <link rel="apple-touch-icon" sizes="180*180" href="apple-icon-180*180.png">
+     <link rel="icon" type="image/png" sizes="192*192" href="android-icon-192*192.png">
+     <link rel="icon" type="image/png" sizes="192*192" href="favicon-icon-32*32.png">
+     <link rel="icon" type="image/png" sizes="192*192" href="favicon-icon-96*96.png">
+     <link rel="icon" type="image/png" sizes="192*192" href="favicon-icon-16*16.png">
+     <link rel="manifest" href="manifest.json">
+     <meta name="msapplication-Tilecolor" content="#ffffff">
+     <meta name="msapplication-TileImage" content="ms-icon-144*144.png">
+     <meta name="theme-color" content="#ffffff">
+    <title>ELABE Academic Portal</title>
+    <style>
+        /* --- CSS Variables for Easy Customization --- */
+        :root {
+            --primary-color: #5b5ff7;
+            --secondary-color: #2c3e50;
+            --background-color: #ecf0f1;
+            --card-background: #ffffff;
+            --text-color: #34495e;
+            --padding-base: 20px;
+        }
+
+        /* --- Base Styles --- */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--background-color);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        /* --- Header and Centered Search Bar --- */
+        .header {
+            background-color: var(--card-background);
+            padding: 10px var(--padding-base);
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header-content {
+            display: grid;
+            grid-template-columns: 1fr auto 1fr;
+            align-items: center;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        /* Animated Logo: ELABE */
+        .logo {
+            font-size: 1.8em;
+            font-weight: 700;
+            color: var(--primary-color);
+            text-decoration: none;
+            opacity: 0;
+            transform: translateY(-20px);
+            animation: fadeInDrop 1s ease-out forwards;
+        }
+
+        @keyframes fadeInDrop {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Search Bar Centered */
+        .search-container {
+            width: 100%;
+            max-width: 450px;
+            justify-self: center;
+          
+        }
+
+        .search-container input[type="text"] {
+            width: 100%;
+            padding: 10px 15px;
+            border: 2px solid #ccc;
+            border-radius: 5px;
+            font-size: 1em;
+            transition: border-color 0.3s;
+        
+        }
+
+        /* --- Navigation with Submenus and Spacing (Desktop) --- */
+        .nav-menu {
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .nav-menu li {
+            margin-left: 25px;
+            position: relative;
+            transition: transform 0.2s;
+            padding: 20px;
+        }
+
+        .nav-menu li:hover {
+            transform: translateY(-2px);
+        }
+
+        .nav-menu a {
+            color: var(--text-color);
+            text-decoration: none;
+            padding: 10px 0;
+            display: block;
+            transition: color 0.3s;
+        }
+
+        /* Submenu Styling */
+        .submenu {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            min-width: 220px;
+            background-color: var(--card-background);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            list-style: none;
+            padding: 10px 0;
+            border-radius: 5px;
+            z-index: 10;
+        }
+
+        .nav-menu li:hover > .submenu {
+            display: block;
+        }
+
+        /* Hamburger Icon */
+        .hamburger-icon {
+            display: none;
+            cursor: pointer;
+            padding: 10px;
+            margin-left: 10px; /* Space between Home link and icon */
+        }
+
+        .bar {
+            display: block;
+            width: 25px;
+            height: 3px;
+            margin: 5px auto;
+            background-color: var(--text-color);
+            transition: all 0.3s ease-in-out;
+        }
+
+        /* --- Main Content and Footer (Unchanged) --- */
+        .main-content {
+            padding: var(--padding-base);
+            max-width: 1400px;
+            margin: 0 auto;
+            min-height: calc(100vh - 100px);
+        }
+
+        .subjects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            padding: 30px 20;
+        }
+
+        .subject-card {
+            background-color: var(--card-background);
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            padding: 25px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .footer {
+            background-color: var(--secondary-color);
+            color: white;
+            text-align: center;
+            padding: 15px;
+            font-size: 0.9em;
+        }
+
+        .bottom-padding-div {
+            height: 20px;
+            background-color: var(--background-color);
+        }
+
+        /* --- Responsive Media Queries (Mobile View) --- */
+        @media (max-width: 600px) {
+            .header-content {
+                /* Only Logo and NavWrapper (which contains Home + Hamburger) */
+                grid-template-columns: auto 1fr;
+                justify-content: space-between;
+                align-items: center;
+            }
+
+            .search-container { display: none;
+             }
+
+            /* Wrapper for the Home link and Hamburger icon */
+            .nav-wrapper {
+                display: flex;
+                align-items: center;
+                /* Push the combo to the far right of the available space */
+                margin-left: auto;
+            }
+
+            /* Home Link (Only visible link outside of the opened menu) */
+            .nav-menu li:not(:first-child) {
+                display: none; /* Hide all other main links on mobile */
+            }
+
+            /* The only visible menu item on the header bar */
+            .nav-menu li:first-child {
+                margin-left: 0; /* Remove desktop spacing */
+                display: flex;
+                align-items: center;
+            }
+
+            /* Hamburger Icon */
+            .hamburger-icon {
+                display: block;
+                order: 3;
+                margin-left: 5px; /* Adjust spacing next to Home link */
+            }
+
+            .nav-menu {
+                /* The full drop-down menu that appears when the hamburger is clicked */
+                display: none;
+                flex-direction: column;
+                align-items: flex-start;
+                position: absolute;
+                top: 60px;
+                left: 0;
+                width: 100%;
+                background-color: var(--card-background);
+                box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+            }
+
+            .nav-menu.open {
+                display: flex;
+                /* Ensures Home is also visible inside the expanded menu */
+            }
+
+            .nav-menu li {
+                width: 100%;
+                margin: 0;
+                border-bottom: 1px solid #eee;
+            }
+
+            .nav-menu li:first-child {
+                display: none; /* Hide the Home link in the expanded menu since it's already on the header bar */
+            }
+
+            /* Mobile Submenu Behavior */
+            .submenu {
+                position: static;
+                box-shadow: none;
+                padding: 0;
+                background-color: var(--background-color);
+            }
+
+            .submenu a {
+                padding-left: 40px;
+            }
+
+            /* Mobile Search Area */
+            .mobile-search {
+                display: block;
+                padding: 10px var(--padding-base) 10px;
+                background-color: var(--card-background);
+                border-bottom: 1px solid #eee;
+            }
+        }
+        .menu-items ul li a{
+    margin-right: 10px;
+}
+    </style>
+    <STYLE>
+        .body{
+          background:url('pexels-photo.jpeg');
+         }
+    </STYLE>
+</head>
+<body>
+    <header class="main-header">
+        <div class="logo">ELABE ACADEMIC PORTAL</div>
+       
+       
+       
+        <div class="search-container">
+            <input type="text" id="search-input" placeholder="Search notes..." class="search-input">
+            <button id="search-button" class="search-button">
+                <span class="search-icon">🔍</span>
+            </button>
+        </div>
+            <div class="nav-wrapper">
+                <nav>
+                    <ul class="nav-menu">
+                        <li><a href="index.html" class="active">🏠Home</a>
+                            <ul class="submenu">
+                                <li><a href="About-us1.html">About us</a></li>
+                                <li><a href="contact.html">Contact</a></li>
+                            </ul>
+                        </li>
+
+                        <li>
+                            <a href="#">📐Maths </a>
+                            <ul class="submenu">
+                                <li><a href="maths-1.html">Maths 1: Algebra</a></li>
+                                <li><a href="maths-2.html">Maths 2: Calculus</a></li>
+                                <li><a href="maths-3.html">Maths 3: Statistics</a></li>
+                            </ul>
+                        </li>
+
+                        <li><a href="#">💻Comp Sci </a>
+                            <ul class="submenu">
+                                <li><a href="cs-1.html">Comp Sci 1: Fundamentals</a></li>
+                                <li><a href="cs-2.html">Comp Sci 2: Data Structures</a></li>
+                                <li><a href="Learn html and css.html">Comp Sci 3: Web Dev</a></li>
+                            </ul>
+                        </li>
+
+                        <li><a href="#">⚛️Physics</a>
+                            <ul class="submenu">
+                                <li><a href="Mechanics.html">Physics 1: Mechanics</a></li>
+                                <li><a href="physics-2.html">Physics 2: Thermo</a></li>
+                                <li><a href="phy1.html">Physics 3: Modern</a></li>
+                            </ul>
+                        </li>
+
+                        <li><a href="#">🧪Chemistry</a>
+                            <ul class="submenu">
+                                <li><a href="chem.html">Chem 1: General</a></li>
+                                <li><a href="organic chem.html">Chem 2: Organic</a></li>
+                                <li><a href="chem-3.html">Chem 3: Analytical</a></li>
+                            </ul>
+                        </li>
+
+                        <li><a href="#">🧬Biology </a>
+                            <ul class="submenu">
+                                <li><a href="bio-1.html">Bio 1: Cell Bio</a></li>
+                                <li><a href="bio-2.html">Bio 2: Genetics</a></li>
+                                <li><a href="bio-3.html">Bio 3: Ecology</a></li>
+                            </ul>
+                        </li>
+
+                        <li><a href="#">📄GCE Papers</a>
+                            <ul class="submenu">
+                                <li><a href="gce.html">A-Level Papers</a></li>
+                                <li><a href="gce.html">O-Level Papers</a></li>
+                                <li><a href="gce-faqs.html">Exam FAQs</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </nav>
+                <div class="hamburger-icon" onclick="toggleMenu()">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="mobile-search" style="display: none;...">
+        <input type="text" placeholder="Search subjects..." />
+    </div>
+
+    <main class="main-content">
+        <h1>Welcome to ELABE Portal</h1>
+        <p>Your streamlined gateway to academic resources. On mobile screens, the Home link is directly beside the menu icon.</p>
+
+        <section class="subjects-grid">
+            <div class="subject-card"><h3>📐Maths </h3><p>Advanced algebra, calculus, and statistical methods.</p><a href="Maths.html">Start Maths &rarr;</a></div>
+            <div class="subject-card"><h3> 💻Computer Science</h3><p>Programming, data structures, and web development principles.</p><a href="computer.html">Start Comp Sci &rarr;</a></div>
+            <div class="subject-card"><h3> ⚛️Physics ️</h3><p>Mechanics, thermodynamics, and the concepts of modern physics.</p><a href="physics.html">Start Physics &rarr;</a></div>
+            <div class="subject-card"><h3>🧪Chemistry </h3><p>General principles, organic chemistry, and lab analysis techniques.</p><a href="chem.html">Start Chemistry &rarr;</a></div>
+            <div class="subject-card"><h3>🧬Biology </h3><p>Life from the cellular level through to large ecosystems.</p><a href="Biology.html">Start Biology &rarr;</a></div>
+            <div class="subject-card"><h3>📄GCE Papers </h3><p>Access past A-Level and O-Level examination papers and resources.</p><a href="gce.html">View Papers &rarr;</a></div>
+        </section>
+    </main>
+
+    <div class="bottom-padding-div">
+        </div>
+
+    <footer class="footer">
+        <div>
+            &copy; 2025 ELABE Academic Portal. All rights reserved.
+        </div>
+        <div>
+            <a href="about-us1.html">About Us</a> |
+            <a href="contact.html">Contact</a> |
+            <a href="guide-gce-success.html">GCE Success Guide</a> |
+            <a href="privacy-policy.html">Privacy Policy</a>
+        </div>
+    </footer>
+
+    <script>
+       // Function to handle definition searching
+       function searchDefinitions(isMobile = false) {
+            // Get the appropriate input element based on context
+            const inputId = isMobile ? 'mobileDefinitionSearchInput' : 'definitionSearchInput';
+            const inputElement = document.getElementById(inputId);
+            let query = inputElement.value.trim();
+
+            if (query) {
+                // Encode the query for URL safety and prepend "definition of"
+                const searchQuery = encodeURIComponent('definition of ' + query);
+                // Redirect to Google search
+                window.open('https://www.google.com/search?q=' + searchQuery, '_blank');
+            }
+        }
+
+        // Function to toggle the Hamburger Menu and Mobile Search
+        function toggleMenu() {
+            const navMenu = document.querySelector('.nav-menu');
+            const mobileSearch = document.querySelector('.mobile-search');
+           
+            navMenu.classList.toggle('open');
+           
+            // Show/hide the mobile search bar
+            // We check window.innerWidth to ensure it only shows on small screens
+            if (navMenu.classList.contains('open') && window.innerWidth <= 600) {
+                 mobileSearch.style.display = 'block';
+            } else {
+                 mobileSearch.style.display = 'none';
+            }
+        }
+    </script>
+</body>
+</html>

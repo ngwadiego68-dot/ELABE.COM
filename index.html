@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ELABE Academic Portal | Choose Your Level</title>
+   
+    <script src="script.js" defer></script>
+
+    <style>
+        /* --- Page Style Variables (Consistent with ELABE Portal) --- */
+        :root {
+            --primary-color: #5b5ff7;
+            --secondary-color: #27ae60;
+            --background-color: #f4f7f6;
+            --text-color: #34495e;
+            --card-color: #ffffff;
+            --font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            font-family: var(--font-family);
+            margin: 0;
+            padding: 0;
+            background-color: var(--background-color);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 950px;
+            margin: 40px auto;
+            padding: 25px;
+            background-color: var(--card-color);
+            border-radius: 15px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        h1 {
+            color: var(--primary-color);
+            text-align: center;
+            border-bottom: 2px solid #ddd;
+            padding-bottom: 10px;
+            margin-bottom: 40px;
+        }
+       
+        /* --- Navigation and Search Bar Styles (From previous request) --- */
+        .main-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: var(--card-color);
+            padding: 10px 25px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+
+        .logo {
+            font-size: 1.4em;
+            font-weight: bold;
+            color: var(--primary-color);
+        }
+
+        .main-nav a {
+            text-decoration: none;
+            color: var(--text-color);
+            margin-left: 25px;
+            padding: 5px 0;
+            transition: color 0.3s;
+        }
+
+        .main-nav a:hover {
+            color: var(--secondary-color);
+            border-bottom: 2px solid var(--secondary-color);
+        }
+
+        .search-container {
+            display: flex;
+            border: 2px solid #ddd;
+            border-radius: 20px;
+            overflow: hidden;
+        }
+
+        .search-input {
+            border: none;
+            padding: 8px 15px;
+            font-size: 1em;
+            outline: none;
+            width: 200px;
+        }
+
+        .search-button {
+            background-color: var(--primary-color);
+            border: none;
+            padding: 8px 12px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .search-button:hover {
+            background-color: #4848d4;
+        }
+
+        .search-icon {
+            color: white;
+            font-size: 1.2em;
+        }
+       
+        /* --- Subject Choice Styling --- */
+        .choice-grid {
+            display: flex;
+            justify-content: space-around;
+            gap: 30px;
+            margin-top: 30px;
+        }
+       
+        .level-card {
+            flex: 1;
+            text-align: center;
+            padding: 30px;
+            background-color: #e9ecef; /* Light gray background */
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .level-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+        }
+       
+        .level-card h2 {
+            color: #d35400; /* Orange accent */
+            font-size: 2.2em;
+            margin-top: 0;
+            border-left: none; /* Override general h2 style */
+        }
+       
+        .level-card p {
+            color: #7f8c8d;
+            font-style: italic;
+            margin-bottom: 25px;
+        }
+
+        .level-link {
+            display: block;
+            background-color: var(--secondary-color);
+            color: white;
+            padding: 12px 25px;
+            text-decoration: none;
+            border-radius: 6px;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+       
+        .level-link:hover {
+            background-color: #1e8449; /* Darker green */
+        }
+        .footer {
+            background-color: var(--secondary-color);
+            color: rgb(248, 250, 251);
+            text-align: center;
+            padding: 15px;
+            font-size: 0.9em;
+        }
+
+        /* Adjust for smaller screens */
+        @media (max-width: 768px) {
+            .main-header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            .main-nav {
+                margin: 10px 0;
+            }
+            .main-nav a {
+                margin-left: 0;
+                margin-right: 15px;
+            }
+            .search-container {
+                width: 100%;
+            }
+            .search-input {
+                flex-grow: 1;
+            }
+            .choice-grid {
+                flex-direction: column;
+                gap: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<header class="main-header">
+    <div class="logo">ELABE ACADEMIC PORTAL</div>
+   
+    <nav class="main-nav">
+        <a href="index.html">🏠 Home</a>
+        <a href="subjects.html" style="color: var(--secondary-color); border-bottom: 2px solid var(--secondary-color);">📚 Subjects</a>
+        <a href="contact.html">📞 Contact</a>
+        <a href="about us1.html">ℹ️ About</a>
+    </nav>
+   
+    <div class="search-container">
+        <input type="text" id="search-input" placeholder="Search notes..." class="search-input">
+        <button id="search-button" class="search-button">
+            <span class="search-icon">🔍</span>
+        </button>
+    </div>
+</header>
+<div class="container">
+    <h1>Welcome! Choose Your GCE Study Level</h1>
+   
+    <div class="choice-grid">
+       
+        <div class="level-card">
+            <h2>GCE Ordinary Level</h2>
+            <p>Notes and resources for Forms 3, 4, & 5 students preparing for the O-Level examination.</p>
+            <a href="gce-o-level.html" class="level-link">
+                START O-LEVEL REVISION →
+            </a>
+        </div>
+       
+        <div class="level-card">
+            <h2>GCE Advanced Level</h2>
+            <p>In-depth notes and resources for Forms 6 & 7 students preparing for the A-Level examination.</p>
+            <a href="gce-a-level.html" class="level-link">
+                START A-LEVEL REVISION →
+            </a>
+        </div>
+    </div>
+   
+    <div style="text-align: center; margin-top: 50px; padding-top: 20px; border-top: 1px dashed #ddd;">
+        <p style="color: var(--text-color);">Need help choosing? Visit the <a href="about.html" style="color: var(--primary-color);">About Page</a> for guidance.</p>
+    </div>
+
+</div>
+<footer class="footer">
+    <div>
+        &copy; 2025 ELABE Academic Portal. All rights reserved.
+    </div>
+    <div>
+         |
+        <a href="guide-gce-success.html">GCE Success Guide</a> |
+        <a href="privacy-policy.html">Privacy Policy</a>
+    </div>
+</footer>
+
+
+</body>
+</html>

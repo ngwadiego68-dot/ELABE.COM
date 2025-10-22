@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GCE Past Papers</title>
+   
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+   
+    <style>
+        /* --- CSS STYLES --- */
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+
+        :root {
+            --primary-color: #007bff; /* Blue */
+            --secondary-color: #28a745; /* Green */
+            --background-color: #f4f7f6;
+            --card-bg: #ffffff;
+            --text-color: #333;
+            --shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            --border-radius: 12px;
+        }
+
+        /* Global Styles */
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--background-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .container {
+            max-width: 1200px;
+            width: 100%;
+            padding: 20px;
+        }
+
+        /* Header Styling */
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding: 20px;
+            border-bottom: 3px solid var(--primary-color);
+        }
+
+        header h1 {
+            font-size: 2.5em;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+        }
+
+        header p {
+            font-size: 1.1em;
+            color: #555;
+        }
+
+        /* Cards Grid Layout */
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        /* Individual Card Styling */
+        .card {
+            background-color: var(--card-bg);
+            border-radius: var(--border-radius);
+            padding: 30px;
+            box-shadow: var(--shadow);
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+            text-align: center;
+            border-top: 5px solid var(--secondary-color);
+            cursor: pointer; /* Indicate the card itself is clickable */
+        }
+
+        .card:hover {
+            transform: translateY(-5px); /* Lift card on hover */
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .card h2 {
+            font-size: 1.5em;
+            font-weight: 600;
+            margin-top: 15px;
+            color: var(--primary-color);
+        }
+
+        .card p {
+            font-size: 1em;
+            color: #666;
+            margin-bottom: 25px;
+            min-height: 50px; /* Ensures cards stay uniform height */
+        }
+
+        /* Icon Styling */
+        .card .icon {
+            font-size: 3em;
+            color: var(--secondary-color);
+        }
+
+        /* Button Styling (Call to Action) */
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: var(--secondary-color);
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: 600;
+            transition: background-color 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background-color: #1e7e34; /* Darker green on hover */
+        }
+
+        /* Specific Card Styling (visual flair) */
+        #card-meetlearn { border-top-color: #f1c40f; /* Yellow */ }
+        #card-meetlearn .icon { color: #f1c40f; }
+
+        #card-gce-revision { border-top-color: #e74c3c; /* Red */ }
+        #card-gce-revision .icon { color: #e74c3c; }
+       
+        #card-app-store { border-top-color: #3498db; /* Light Blue */ }
+        #card-app-store .icon { color: #3498db; }
+
+
+        /* Disclaimer Styling */
+        .disclaimer {
+            text-align: center;
+            font-size: 0.9em;
+            color: #777;
+            padding: 15px;
+            border-top: 1px dashed #ccc;
+        }
+
+        /* JavaScript Class Integration */
+        .card.active {
+            border: 2px solid var(--primary-color);
+            box-shadow: 0 0 0 4px rgba(0, 123, 255, 0.3);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Access Cameroon GCE Past Papers</h1>
+            <p>
+                Click on the links below to access comprehensive archives of past questions.
+                These links direct you to trusted third-party educational platforms for download.
+            </p>
+        </header>
+
+        <div class="cards-grid">
+            <div class="card" id="card-meetlearn">
+                <i class="icon fas fa-graduation-cap"></i>
+                <h2>MeetLearn Resources</h2>
+                <p>An extensive, categorized database of GCE O & A Level questions, often including marking guides.</p>
+                <a href="https://meetlearn.com/downloads/category/11-past-gce-questions"
+                   target="_blank"
+                   class="btn">Go to Downloads</a>
+            </div>
+
+            <div class="card" id="card-gce-revision">
+                <i class="icon fas fa-book-open"></i>
+                <h2>GCE Revision Center</h2>
+                <p>A great source for GCE past papers, notes, and the latest examination information.</p>
+                <a href="https://cameroongcerevision.com/"
+                   target="_blank"
+                   class="btn">Explore Archive</a>
+            </div>
+
+            <div class="card" id="card-app-store">
+                <i class="icon fab fa-google-play"></i>
+                <h2>Mobile Access (Apps)</h2>
+                <p>Find GCE past paper apps on the Play Store for easy mobile revision on the go.</p>
+                <a href="https://play.google.com/store/search?q=gce+past+papers+cameroon&c=apps"
+                   target="_blank"
+                   class="btn">Find Mobile Apps</a>
+            </div>
+        </div>
+       
+        <div class="disclaimer">
+            <p><strong>Disclaimer:</strong> You will be navigating to a third-party website. We recommend checking the GCE Board's official site for regulations.</p>
+        </div>
+    </div>
+   
+    <script>
+        /* --- JAVASCRIPT --- */
+        document.addEventListener('DOMContentLoaded', () => {
+            const cards = document.querySelectorAll('.card');
+
+            cards.forEach(card => {
+                // Add a click listener to each card
+                card.addEventListener('click', function(event) {
+                    // Check if the click target is the button (to prevent double-action)
+                    if (event.target.classList.contains('btn')) {
+                        return;
+                    }
+
+                    // Find the button within the clicked card
+                    const button = this.querySelector('.btn');
+                   
+                    if (button) {
+                        // Manually trigger the button's action (follow the link)
+                        window.open(button.href, '_blank');
+                    }
+                   
+                    // Add a temporary 'active' class for visual feedback
+                    this.classList.add('active');
+                   
+                    // Remove the 'active' class after a short delay
+                    setTimeout(() => {
+                        this.classList.remove('active');
+                    }, 500);
+                });
+            });
+        });
+    </script>
+</body>
+</html>

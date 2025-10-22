@@ -1,0 +1,31 @@
+[
+    {
+        "id": 1,
+        "title": "GCE O-Level Chemistry: Introduction to Organic Chemistry",
+        "url": "chem-2.html",
+        "keywords": ["Organic Chemistry", "Alkanes", "Alkenes", "Alcohols", "Homologous Series", "Functional Group"],
+        "snippet": "Covers the fundamental concepts of organic chemistry, including naming conventions, general formulas, and key functional groups for the GCE O-Level syllabus."
+    },
+    {
+        "id": 2,
+        "title": "GCE O-Level Physics: Mechanics, Forces, and Motion",
+        "url": "physics-1.html",
+        "keywords": ["Mechanics", "Motion", "Speed", "Velocity", "Acceleration", "Newton's Laws", "Force", "Weight", "Mass"],
+        "snippet": "Detailed notes on linear motion, vectors, Newton's three laws of motion, and calculation of forces for the O-Level examination."
+    },
+    {
+        "id": 3,
+        "title": "GCE O-Level Physics: Radioactivity and Basic Electronics",
+        "url": "physics-3.html",
+        "keywords": ["Radioactivity", "Alpha", "Beta", "Gamma", "Half-Life", "C.R.O", "Logic Gates", "Fission"],
+        "snippet": "The structure of the atom, properties of radioactive emissions, the concept of half-life, and basic principles of the Cathode Ray Oscilloscope (C.R.O)."
+    },
+    {
+        "id": 4,
+        "title": "Web Development Basics for ELABE Portal",
+        "url": "web-dev-notes.html",
+        "keywords": ["HTML", "CSS", "JavaScript", "Code Editor", "VS Code", "Notepad++", "Web Development"],
+        "snippet": "Introduction to HTML structure, CSS styling, and recommendations for powerful code editors to build your own academic portal."
+    }
+    
+]

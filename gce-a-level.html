@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GCE A-Level Notes Directory | ELABE Portal</title>
+    <script src="script.js" defer></script>
+    <style>
+        /* --- Page Style Variables (Consistent with ELABE Portal) --- */
+        :root {
+            --primary-color: #5b5ff7;
+            --secondary-color: #27ae60;
+            --al-color: #3498db; /* A-Level Accent (Blue) */
+            --background-color: #f4f7f6;
+            --text-color: #34495e;
+            --card-color: #ffffff;
+            --font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            /* ... Paste body and container CSS here ... */
+            font-family: var(--font-family);
+            margin: 0;
+            padding: 0;
+            background-color: var(--background-color);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 950px;
+            margin: 40px auto;
+            padding: 25px;
+            background-color: var(--card-color);
+            border-radius: 15px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        h1 {
+            color: var(--al-color);
+            text-align: center;
+            border-bottom: 3px solid var(--primary-color);
+            padding-bottom: 10px;
+            margin-bottom: 40px;
+        }
+       
+        /* Subject Grid and Cards (A-Level style) */
+        .subject-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            padding-top: 20px;
+        }
+       
+        .subject-card {
+            background-color: #f9f9f9;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+            border-top: 5px solid var(--al-color);
+        }
+       
+        .notes-list {
+            list-style: none;
+            padding: 0;
+            margin-top: 15px;
+        }
+       
+        .notes-list a {
+            text-decoration: none;
+            color: var(--text-color);
+            padding: 5px 0;
+            display: block;
+            border-bottom: 1px dashed #eee;
+        }
+       
+        .notes-list a:hover {
+            color: var(--al-color);
+            padding-left: 5px;
+        }
+       
+        /* ... Paste remaining CSS for header, navigation, and search bar here ... */
+        .main-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: var(--card-color);
+            padding: 10px 25px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+       
+        /* ... etc. ... */
+    </style>
+</head>
+<body>
+
+<header class="main-header">
+    <div class="logo">ELABE ACADEMIC PORTAL</div>
+   
+    <nav class="main-nav">
+        <a href="index.html">🏠 Home</a>
+        <a href="subjects.html" style="color: var(--secondary-color); border-bottom: 2px solid var(--secondary-color);">📚 Subjects</a>
+        <a href="contact.html">📞 Contact</a>
+        <a href="about.html">ℹ️ About</a>
+    </nav>
+   
+    <div class="search-container">
+        <input type="text" id="search-input" placeholder="Search notes..." class="search-input">
+        <button id="search-button" class="search-button">
+            <span class="search-icon">🔍</span>
+        </button>
+    </div>
+</header>
+<div class="container">
+    <h1>GCE Advanced Level (A-Level) Study Resources 🔬</h1>
+   
+    <p style="text-align: center; color: var(--al-color); font-weight: bold;">Resources for Forms 6 and 7 (Lower and Upper Sixth). Choose a subject below.</p>
+   
+    <div class="subject-grid">
+       
+        <div class="subject-card">
+            <h2>📐 Pure Mathematics</h2>
+            <p>Complex Numbers, Differential Equations, and Mechanics.</p>
+            <ul class="notes-list">
+                <li><a href="#">(Topic: Integration Techniques)</a></li>
+                <li><a href="#">(Topic: Probability Distributions)</a></li>
+            </ul>
+        </div>
+       
+        <div class="subject-card">
+            <h2>🧪 Chemistry</h2>
+            <p>Physical, Inorganic, and Organic Chemistry.</p>
+            <ul class="notes-list">
+                <li><a href="#">(Topic: Kinetics and Rate Equations)</a></li>
+                <li><a href="#">(Topic: Transition Elements)</a></li>
+            </ul>
+        </div>
+
+        <div class="subject-card">
+            <h2>📚 General Studies</h2>
+            <p>Essays, Comprehension, and Current Affairs.</p>
+            <ul class="notes-list">
+                <li><a href="#">(Topic: Essay Writing Guide)</a></li>
+                <li><a href="#">(Topic: Argumentative Structure)</a></li>
+            </ul>
+        </div>
+
+    </div>
+   
+    <div style="text-align: center; margin-top: 40px; padding: 15px; background-color: #f7f7ff; border: 1px dashed var(--al-color); border-radius: 8px;">
+        <p style="margin: 0; color: var(--text-color);">Status Update: More A-Level notes are being added soon! Check back for updates.</p>
+    </div>
+
+</div>
+
+</body>
+</html>

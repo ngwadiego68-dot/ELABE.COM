@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ELABE Academic Portal</title>
+    <style>
+        /* --- CSS Variables for Easy Customization --- */
+        :root {
+            --primary-color: #5b5ff7;
+            --secondary-color: #2c3e50;
+            --background-color: #ecf0f1;
+            --card-background: #ffffff;
+            --text-color: #34495e;
+            --padding-base: 20px;
+        }
+
+        /* --- Base Styles and Typography --- */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--background-color);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        /* --- Header and Centered Search Bar --- */
+        .header {
+            background-color: var(--card-background);
+            padding: 10px var(--padding-base);
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header-content {
+            display: grid;
+            grid-template-columns: 1fr auto 1fr;
+            align-items: center;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        /* Animated Logo: ELABE */
+        .logo {
+            font-size: 1.8em;
+            font-weight: 700;
+            color: var(--primary-color);
+            text-decoration: none;
+            opacity: 0;
+            transform: translateY(-20px);
+            animation: fadeInDrop 1s ease-out forwards;
+        }
+
+        @keyframes fadeInDrop {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+       
+        /* Search Bar Centered */
+        .search-container {
+            width: 100%;
+            max-width: 450px;
+            justify-self: center;
+            display: flex;
+        }
+
+        .search-container input[type="text"] {
+            width: 100%;
+            padding: 10px 15px;
+            border: 2px solid #ccc;
+            border-radius: 5px;
+            font-size: 1em;
+            transition: border-color 0.3s;
+        }
+
+        .search-container input[type="text"]:focus {
+            border-color: var(--primary-color);
+            outline: none;
+        }
+       
+        /* --- Navigation with Submenus and Spacing (Desktop) --- */
+        .nav-menu {
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+       
+        .nav-menu li {
+            margin-left: 25px;
+            position: relative;
+            transition: transform 0.2s;
+        }
+       
+        .nav-menu li:hover {
+            transform: translateY(-2px);
+        }
+
+        .nav-menu a {
+            color: var(--text-color);
+            text-decoration: none;
+            padding: 10px 0;
+            display: block;
+            transition: color 0.3s;
+        }
+       
+        /* Submenu Styling */
+        .submenu {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            min-width: 220px;
+            background-color: var(--card-background);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            list-style: none;
+            padding: 10px 0;
+            border-radius: 5px;
+            z-index: 10;
+        }
+
+        .nav-menu li:hover > .submenu {
+            display: block;
+        }
+
+        /* Hamburger Icon */
+        .hamburger-icon {
+            display: none;
+            cursor: pointer;
+            padding: 10px;
+            margin-left: 10px;
+        }
+
+        .bar {
+            display: block;
+            width: 25px;
+            height: 3px;
+            margin: 5px auto;
+            background-color: var(--text-color);
+            transition: all 0.3s ease-in-out;
+        }
+
+        /* --- Main Content and Footer (UPDATED) --- */
+        .main-content {
+            padding: var(--padding-base);
+            max-width: 1400px;
+            margin: 0 auto;
+            min-height: calc(100vh - 100px);
+        }
+
+        .subjects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            padding: 30px 0;
+        }
+
+        .subject-card {
+            background-color: var(--card-background);
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            padding: 25px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+       
+        .footer {
+            background-color: var(--secondary-color);
+            color: white;
+            text-align: center;
+            padding: 15px;
+            font-size: 0.9em;
+            line-height: 1.8; /* Added line height for better spacing */
+        }
+
+        .footer a {
+            color: #95a5a6; /* Light gray link color */
+            text-decoration: none;
+            margin: 0 8px; /* Reduced margin slightly */
+            transition: color 0.3s;
+        }
+
+        .footer a:hover {
+            color: var(--primary-color);
+        }
+
+        .bottom-padding-div {
+            height: 20px;
+            background-color: var(--background-color);
+        }
+
+        /* --- Responsive Media Queries (Mobile View) --- */
+        @media (max-width: 600px) {
+            .header-content {
+                grid-template-columns: auto 1fr;
+                justify-content: space-between;
+                align-items: center;
+            }
+
+            .search-container { display: none; }
+           
+            .nav-wrapper {
+                display: flex;
+                align-items: center;
+                margin-left: auto;
+            }
+           
+            .nav-menu li:not(:first-child) {
+                display: none;
+            }
+           
+            .nav-menu li:first-child {
+                margin-left: 0;
+                display: flex;
+                align-items: center;
+            }
+
+            .hamburger-icon {
+                display: block;
+                order: 3;
+                margin-left: 5px;
+            }
+
+            .nav-menu {
+                display: none;
+                flex-direction: column;
+                align-items: flex-start;
+                position: absolute;
+                top: 60px;
+                left: 0;
+                width: 100%;
+                background-color: var(--card-background);
+                box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+            }
+           
+            .nav-menu.open {
+                display: flex;
+            }
+           
+            .nav-menu li {
+                width: 100%;
+                margin: 0;
+                border-bottom: 1px solid #eee;
+            }
+           
+            .nav-menu li:first-child {
+                display: none;
+            }
+
+            .submenu {
+                position: static;
+                box-shadow: none;
+                padding: 0;
+                background-color: var(--background-color);
+            }
+
+            .submenu a {
+                padding-left: 40px;
+            }
+
+            .mobile-search {
+                display: block;
+                padding: 10px var(--padding-base) 10px;
+                background-color: var(--card-background);
+                border-bottom: 1px solid #eee;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="header">
+        <div class="header-content">
+            <a href="index.html" class="logo">ELABE</a>
+           
+            <div class="search-container">
+                <input type="text"
+                       id="definitionSearchInput"
+                       placeholder="Search for definitions (e.g., 'entropy')"
+                       onkeypress="if(event.key === 'Enter') searchDefinitions()">
+            </div>
+           
+            <div class="nav-wrapper">
+                <nav>
+                    <ul class="nav-menu">
+                        <li><a href="index.html" class="active">Home</a></li>
+                       
+                        <li>
+                            <a href="#">Maths 📐</a>
+                            <ul class="submenu">
+                                <li><a href="maths-1.html">Maths 1: Algebra</a></li>
+                                <li><a href="maths-2.html">Maths 2: Calculus</a></li>
+                                <li><a href="maths-3.html">Maths 3: Statistics</a></li>
+                            </ul>
+                        </li>
+                       
+                        <li>
+                            <a href="#">Comp Sci 💻</a>
+                            <ul class="submenu">
+                                <li><a href="cs-1.html">Comp Sci 1: Fundamentals</a></li>
+                                <li><a href="cs-2.html">Comp Sci 2: Data Structures</a></li>
+                                <li><a href="cs-3.html">Comp Sci 3: Web Dev</a></li>
+                            </ul>
+                        </li>
+                       
+                        <li>
+                            <a href="#">Physics ⚛️</a>
+                            <ul class="submenu">
+                                <li><a href="physics-density.html">Physics 1: Density</a></li>
+                                <li><a href="physics-pressure.html">Physics 2: Pressure</a></li>
+                                <li><a href="physics-thermo-heat.html">Physics 3: Heat (Thermo)</a></li>
+                                <li><a href="physics-3.html">Physics 4: Modern</a></li>
+                            </ul>
+                        </li>
+
+                        <li>
+                            <a href="#">Chemistry 🧪</a>
+                            <ul class="submenu">
+                                <li><a href="chem-1.html">Chem 1: General</a></li>
+                                <li><a href="chem-2.html">Chem 2: Organic</a></li>
+                                <li><a href="chem-3.html">Chem 3: Analytical</a></li>
+                            </ul>
+                        </li>
+                       
+                        <li>
+                            <a href="#">Biology 🧬</a>
+                            <ul class="submenu">
+                                <li><a href="bio-1.html">Bio 1: Cell Bio</a></li>
+                                <li><a href="bio-2.html">Bio 2: Genetics</a></li>
+                                <li><a href="bio-3.html">Bio 3: Ecology</a></li>
+                            </ul>
+                        </li>
+                       
+                        <li>
+                            <a href="#">GCE Papers 📄</a>
+                            <ul class="submenu">
+                                <li><a href="gce-a-level.html">A-Level Papers</a></li>
+                                <li><a href="gce-o-level.html">O-Level Papers</a></li>
+                                <li><a href="gce-faq.html">Exam FAQs</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </nav>
+                <div class="hamburger-icon" onclick="toggleMenu()">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="mobile-search" style="display: none;">
+        <input type="text"
+               id="mobileDefinitionSearchInput"
+               placeholder="Search for definitions..."
+               onkeypress="if(event.key === 'Enter') searchDefinitions(true)">
+    </div>
+
+    <main class="main-content">
+        <h1>Welcome to ELABE Portal</h1>
+        <p>Use the search bar above to instantly find definitions for any academic term.</p>
+
+        <section class="subjects-grid">
+            <div class="subject-card"><h3>Maths 📐</h3><p>Advanced algebra, calculus, and statistical methods.</p><a href="maths-1.html">Start Maths &rarr;</a></div>
+            <div class="subject-card"><h3>Computer Science 💻</h3><p>Programming, data structures, and web development principles.</p><a href="cs-1.html">Start Comp Sci &rarr;</a></div>
+            <div class="subject-card"><h3>Physics ⚛️</h3><p>Mechanics, thermodynamics, and the concepts of modern physics.</p><a href="physics-density.html">Start Physics &rarr;</a></div>
+            <div class="subject-card"><h3>Chemistry 🧪</h3><p>General principles, organic chemistry, and lab analysis techniques.</p><a href="chem-1.html">Start Chemistry &rarr;</a></div>
+            <div class="subject-card"><h3>Biology 🧬</h3><p>Life from the cellular level through to large ecosystems.</p><a href="bio-1.html">Start Biology &rarr;</a></div>
+            <div class="subject-card"><h3>GCE Papers 📄</h3><p>Access past A-Level and O-Level examination papers and resources.</p><a href="gce-a-level.html">View Papers &rarr;</a></div>
+        </section>
+    </main>
+
+    <div class="bottom-padding-div"></div>
+
+    <footer class="footer">
+        <div>
+            &copy; 2025 ELABE Academic Portal. All rights reserved.
+        </div>
+        <div>
+            <a href="about-us.html">About Us</a> |
+            <a href="contact.html">Contact</a> |
+            <a href="guide-gce-success.html">GCE Success Guide</a> |
+            <a href="privacy-policy.html">Privacy Policy</a>
+        </div>
+    </footer>
+
+    <script>
+        // Function to handle definition searching
+        function searchDefinitions(isMobile = false) {
+            const inputId = isMobile ? 'mobileDefinitionSearchInput' : 'definitionSearchInput';
+            const inputElement = document.getElementById(inputId);
+            let query = inputElement.value.trim();
+
+            if (query) {
+                // Encode the query for URL safety and prepend "definition of"
+                const searchQuery = encodeURIComponent('definition of ' + query);
+                // Redirect to Google search
+                window.open('https://www.google.com/search?q=' + searchQuery, '_blank');
+            }
+        }
+
+        // Function to toggle the Hamburger Menu and Mobile Search
+        function toggleMenu() {
+            const navMenu = document.querySelector('.nav-menu');
+            const mobileSearch = document.querySelector('.mobile-search');
+           
+            navMenu.classList.toggle('open');
+           
+            // Show/hide the mobile search bar
+            if (navMenu.classList.contains('open') && window.innerWidth <= 600) {
+                 mobileSearch.style.display = 'block';
+            } else {
+                 mobileSearch.style.display = 'none';
+            }
+        }
+    </script>
+</body>
+</html>

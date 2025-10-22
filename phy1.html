@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Physics Notes: O-Level Modern Physics and Electronics</title>
+    <style>
+        /* --- Page Style Variables (Consistent with ELABE Portal) --- */
+        :root {
+            --primary-color: #5b5ff7;
+            --secondary-color: #00bcd4; /* O-Level Physics Accent (Cyan/Blue) */
+            --background-color: #f4f7f6;
+            --text-color: #34495e;
+            --card-color: #ffffff;
+            --font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            font-family: var(--font-family);
+            margin: 0;
+            padding: 0;
+            background-color: var(--background-color);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 950px;
+            margin: 40px auto;
+            padding: 25px;
+            background-color: var(--card-color);
+            border-radius: 15px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        h1 {
+            color: var(--secondary-color);
+            text-align: center;
+            border-bottom: 4px double var(--primary-color);
+            padding-bottom: 10px;
+            margin-bottom: 30px;
+        }
+
+        h2 {
+            color: var(--primary-color);
+            border-left: 6px solid var(--secondary-color);
+            padding-left: 12px;
+            margin-top: 40px;
+            margin-bottom: 15px;
+            font-size: 1.6em;
+        }
+
+        h3 {
+            color: #3498db; /* Blue for subtopics */
+            margin-top: 25px;
+            font-size: 1.25em;
+            border-bottom: 1px dashed #ccc;
+            padding-bottom: 5px;
+        }
+
+        .definition-box {
+            background-color: #e0f7fa; /* Light cyan */
+            border-left: 5px solid var(--secondary-color);
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 8px;
+        }
+
+        .formula-box {
+            background-color: #f0f4ff; /* Light blue/lilac */
+            border: 1px solid var(--primary-color);
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 5px;
+            font-weight: bold;
+            text-align: center;
+            overflow-x: auto;
+        }
+       
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+            font-size: 0.9em;
+        }
+
+        table th, table td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: left;
+        }
+
+        table th {
+            background-color: var(--secondary-color);
+            color: white;
+            text-transform: uppercase;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>O-Level Physics: Radioactivity and Basic Electronics 💡</h1>
+   
+    <h2>1. The Atomic Structure and Nuclear Energy</h2>
+   
+    <h3>Atomic Structure Review</h3>
+    <div class="definition-box">
+        <ul>
+            <li>Nucleus: Contains protons (positive charge) and neutrons (no charge).</li>
+            <li>Electrons: Orbit the nucleus in shells (negative charge).</li>
+            <li>Atomic Number (Z): Number of protons. Defines the element.</li>
+            <li>Mass Number (A): Total number of protons and neutrons.</li>
+            <li>Isotopes: Atoms of the same element (same Z) with different mass numbers (different number of neutrons).</li>
+        </ul>
+    </div>
+   
+    <h3>Radioactivity</h3>
+    <p>Radioactivity is the spontaneous decay of an unstable atomic nucleus by emitting radiation (alpha, beta, or gamma) to become more stable.</p>
+
+    <div class="table-container">
+        <table>
+            <thead>
+                <tr>
+                    <th>Type of Radiation</th>
+                    <th>Charge</th>
+                    <th>Nature</th>
+                    <th>Penetration</th>
+                    <th>Ionizing Power</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Alpha (α)</td>
+                    <td>+2</td>
+                    <td>Helium Nucleus ($\mathbf{^4_2 He}$)</td>
+                    <td>Low (Stopped by paper)</td>
+                    <td>High</td>
+                </tr>
+                <tr>
+                    <td>Beta (β)</td>
+                    <td>-1</td>
+                    <td>Fast Electron ($\mathbf{^0_{-1} e}$)</td>
+                    <td>Medium (Stopped by Aluminium)</td>
+                    <td>Medium</td>
+                </tr>
+                <tr>
+                    <td>Gamma (δ)</td>
+                    <td>0</td>
+                    <td>Electromagnetic Wave</td>
+                    <td>High (Reduced by thick Lead)</td>
+                    <td>Low</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <h3>Half-Life (1/2)</h3>
+    <div class="formula-box">
+        <p>The time taken for half of the radioactive nuclei in a sample to decay (or for the activity to fall by half).</p>
+        <p>If the initial mass is $M_0$ and the number of half-lives is $n$, the remaining mass $M$ is:</p>
+        $$M = M_0 \times \left(\frac{1}{2}\right)^n$$
+    </div>
+   
+    <p><strong>Uses of Radioactivity:</strong> Sterilization of equipment, Carbon dating, Smoke alarms ($\alpha$ source), Medical imaging and therapy.</p>
+    <p><strong>Nuclear Fission:</strong> The splitting of a heavy nucleus into two smaller nuclei, releasing a large amount of energy (used in nuclear power plants).</p>
+
+    <h2>2. Basic Electronics</h2>
+   
+    <h3>The Cathode Ray Oscilloscope (C.R.O)</h3>
+    <div class="definition-box">
+        <p>The C.R.O. is a device used to visually display and measure electrical signals (voltages). It plots the voltage on the Y-axis against time on the X-axis.</p>
+        <ul>
+            <li>**Y-Gain Control:** Controls the vertical scale (**Voltage/Division**). Used to measure the amplitude (peak voltage).</li>
+            <li>**Time-Base Control:** Controls the horizontal scale (**Time/Division**). Used to measure the period of the wave.</li>
+        </ul>
+    </div>
+   
+    <h3>Measuring A.C. Signals with the C.R.O</h3>
+    <p>To measure an Alternating Current (A.C.) signal:</p>
+    <ol>
+        <li>**Peak Voltage ($\mathbf{V_p}$):** $V_p = (\text{Peak deflection on Y-axis}) \times (\text{Y-Gain setting})$</li>
+        <li>**Period ($\mathbf{T}$):** $T = (\text{Length of one complete wave on X-axis}) \times (\text{Time-Base setting})$</li>
+        <li>**Frequency ($\mathbf{f}$):** $f = \frac{1}{T}$</li>
+    </ol>
+   
+    <h3>Logic Gates (Introduction)</h3>
+    <p>Logic gates are electronic circuits that perform basic logical operations. They take one or more inputs and produce a single output (usually 1 or 0).</p>
+   
+    <div class="table-container">
+        <table>
+            <thead>
+                <tr>
+                    <th>Gate</th>
+                    <th>Operation</th>
+                    <th>Symbol</th>
+                    <th>Truth Table (Example)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>**AND**</td>
+                    <td>Output is 1 ONLY if **ALL** inputs are 1.</td>
+                    <td>A & B $\rightarrow$ Y</td>
+                    <td>0 & 0 = 0, 1 & 1 = 1</td>
+                </tr>
+                <tr>
+                    <td>**OR**</td>
+                    <td>Output is 1 if **ANY** input is 1.</td>
+                    <td>A + B $\rightarrow$ Y</td>
+                    <td>0 + 0 = 0, 1 + 0 = 1</td>
+                </tr>
+                <tr>
+                    <td>**NOT**</td>
+                    <td>Inverts the input.</td>
+                    <td>$\bar{A} \rightarrow$ Y</td>
+                    <td>NOT 1 = 0, NOT 0 = 1</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+</body>
+</html>

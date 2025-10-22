@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Results | ELABE Portal</title>
+    <script src="script.js" defer></script>
+   
+    <style>
+        /* ... PASTE ALL CSS STYLES HERE ... */
+        :root {
+            --primary-color: #5b5ff7;
+            --secondary-color: #27ae60;
+            --background-color: #f4f7f6;
+            --text-color: #34495e;
+            --card-color: #ffffff;
+            --font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        /* ... ETC. ... */
+       
+        /* New Styles for Results Page */
+        .result-item {
+            background-color: #f9f9f9;
+            padding: 15px;
+            margin-bottom: 15px;
+            border-left: 5px solid var(--secondary-color);
+            border-radius: 5px;
+        }
+       
+        .result-item h3 {
+            margin-top: 0;
+            color: var(--primary-color);
+            font-size: 1.3em;
+        }
+       
+        .result-item a {
+            text-decoration: none;
+            color: var(--primary-color);
+            font-weight: bold;
+        }
+       
+        .result-snippet {
+            color: #555;
+            font-size: 0.9em;
+            margin-top: 5px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+    <h1 id="results-heading">Search Results for ""</h1>
+   
+    <div id="results-list">
+        <p>Searching...</p>
+    </div>
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const resultsList = document.getElementById('results-list');
+        const resultsHeading = document.getElementById('results-heading');
+
+        // Retrieve the stored results and query from the session storage
+        const resultsJson = sessionStorage.getItem('searchResults');
+        const query = sessionStorage.getItem('searchQuery');
+       
+        resultsHeading.textContent = `Search Results for "${query}"`;
+        resultsList.innerHTML = ''; // Clear the "Searching..." text
+
+        if (!resultsJson) {
+            resultsList.innerHTML = '<p>No results found, or an error occurred.</p>';
+            return;
+        }
+       
+        const results = JSON.parse(resultsJson);
+
+        if (results.length === 0) {
+            resultsList.innerHTML = `<p>Sorry, no notes matched your query **"${query}"**. Try a shorter or more general term.</p>`;
+        } else {
+            results.forEach(item => {
+                const resultDiv = document.createElement('div');
+                resultDiv.className = 'result-item';
+               
+                resultDiv.innerHTML = `
+                    <h3><a href="${item.url}">${item.title}</a></h3>
+                    <p class="result-snippet">${item.snippet}</p>
+                    <p style="font-size:0.8em; color:#999;">Keywords: ${item.keywords.join(', ')}</p>
+                `;
+                resultsList.appendChild(resultDiv);
+            });
+        }
+       
+        // Clean up session storage after use
+        sessionStorage.removeItem('searchResults');
+        sessionStorage.removeItem('searchQuery');
+    });
+</script>
+
+</body>
+</html>
